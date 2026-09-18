@@ -1,0 +1,14 @@
+alloy:
+  securityContext:
+    runAsUser: 473
+    runAsGroup: 473
+
+global:
+  podSecurityContext:
+    fsGroup: 473
+
+configReloader:
+  securityContext:
+    # this is the UID of the "nobody" user that the configReloader image runs as
+    runAsUser: 65534
+    runAsGroup: 65534

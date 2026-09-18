@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: alloy-logs
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: alloy-logs
+  template:
+    metadata:
+      labels:
+        app: alloy-logs
+    spec:
+      securityContext:
+        runAsUser: 473
+        runAsGroup: 473
+        fsGroup: 1000
+      containers:
+      - name: alloy-logs
+        image: grafana/alloy:1.19
+        ports:
+        - containerPort: 12345
+        securityContext:
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+      volumes:
+      - name: log-volume
+        emptyDir: {}

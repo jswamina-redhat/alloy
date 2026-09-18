@@ -1,1 +1,1 @@
-# alloy
+[Reference Documentation](https://grafana.com/docs/alloy/latest/set-up/install/openshift/})
